@@ -28,29 +28,27 @@ while True:
 
         engine = pyttsx3.init()
         def get_input():
-            # گرفتن متن از اینپوت
-            text = entry.get()
-                
-            if text:  # اگر متن خالی نبود
-                engine.say(text)
-                engine.runAndWait()  # ⬅️ این خط ضروری است تا صدا پخش شود
-            else:
-                print("متنی وارد نشده است!")
 
-        # ایجاد پنجره اصلی
+            text = entry.get()
+            if text:  
+                engine.say(text)
+                engine.runAndWait() 
+            else:
+                print("there isn't any text")
+
+        
         root = tk.Tk()
         root.title("Text to Speech")
         root.geometry("300x200")
 
-        # ایجاد برچسب (Label) برای راهنما
+    
         label = tk.Label(root, text="inter the text: ")
         label.pack(pady=10)
 
-        # ایجاد فیلد ورودی (Entry)
         entry = tk.Entry(root, width=30)
         entry.pack(pady=5)
 
-        # ایجاد دکمه برای ثبت ورودی
+      
         button = tk.Button(root, text="Say",bg="green", command=get_input)
         button.pack(pady=10)
         root.mainloop()
